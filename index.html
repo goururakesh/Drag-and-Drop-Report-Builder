@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No-Code Report Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Actions -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">📊 Report Builder</h1>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-secondary" id="newReport">
+                <span class="icon">📄</span> New Report
+            </button>
+            <button class="btn btn-secondary" id="undoBtn" title="Undo">
+                <span class="icon">↶</span>
+            </button>
+            <button class="btn btn-secondary" id="redoBtn" title="Redo">
+                <span class="icon">↷</span>
+            </button>
+            <button class="btn btn-secondary" id="saveBtn">
+                <span class="icon">💾</span> Save
+            </button>
+            <button class="btn btn-secondary" id="saveAsTemplateBtn">
+                <span class="icon">📋</span> Save As Template
+            </button>
+            <button class="btn btn-primary" id="previewBtn">
+                <span class="icon">👁️</span> Preview
+            </button>
+            <button class="btn btn-secondary" id="exportBtn">
+                <span class="icon">📥</span> Export
+            </button>
+            <button class="btn btn-secondary" id="shareBtn">
+                <span class="icon">🔗</span> Share
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Left Sidebar - Components Panel -->
+        <aside class="sidebar sidebar-left">
+            <div class="sidebar-header">
+                <h2>Components</h2>
+            </div>
+            
+            <div class="component-section">
+                <div class="section-header" data-section="metrics">
+                    <span class="icon">📈</span>
+                    <span>Metrics</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="component-list" id="metricsList">
+                    <div class="component-item" draggable="true" data-type="metric" data-component="Revenue">
+                        <span class="component-icon">💰</span>
+                        <span>Revenue</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="metric" data-component="Orders">
+                        <span class="component-icon">📦</span>
+                        <span>Orders</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="metric" data-component="AOV">
+                        <span class="component-icon">💵</span>
+                        <span>AOV</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="metric" data-component="Conversion Rate">
+                        <span class="component-icon">🎯</span>
+                        <span>Conversion Rate</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="metric" data-component="Returning Customer Rate">
+                        <span class="component-icon">🔄</span>
+                        <span>Returning Customer Rate</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="metric" data-component="CAC">
+                        <span class="component-icon">💸</span>
+                        <span>CAC</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="metric" data-component="ROAS">
+                        <span class="component-icon">📊</span>
+                        <span>ROAS</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="metric" data-component="CTR">
+                        <span class="component-icon">👆</span>
+                        <span>CTR</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="metric" data-component="Profit">
+                        <span class="component-icon">💎</span>
+                        <span>Profit</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-section">
+                <div class="section-header" data-section="visualizations">
+                    <span class="icon">📊</span>
+                    <span>Visualizations</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="component-list" id="visualizationsList">
+                    <div class="component-item" draggable="true" data-type="chart" data-component="Line Chart">
+                        <span class="component-icon">📈</span>
+                        <span>Line Chart</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="chart" data-component="Bar Chart">
+                        <span class="component-icon">📊</span>
+                        <span>Bar Chart</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="chart" data-component="Pie Chart">
+                        <span class="component-icon">🥧</span>
+                        <span>Pie Chart</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="chart" data-component="Area Chart">
+                        <span class="component-icon">📉</span>
+                        <span>Area Chart</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="chart" data-component="Table">
+                        <span class="component-icon">📋</span>
+                        <span>Table</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="chart" data-component="KPI Card">
+                        <span class="component-icon">🎯</span>
+                        <span>KPI Card</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="chart" data-component="Heatmap">
+                        <span class="component-icon">🔥</span>
+                        <span>Heatmap</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="chart" data-component="Funnel Chart">
+                        <span class="component-icon">🔻</span>
+                        <span>Funnel Chart</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-section">
+                <div class="section-header" data-section="filters">
+                    <span class="icon">🔍</span>
+                    <span>Filters</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="component-list" id="filtersList">
+                    <div class="component-item" draggable="true" data-type="filter" data-component="Date Range">
+                        <span class="component-icon">📅</span>
+                        <span>Date Range</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="filter" data-component="Channel">
+                        <span class="component-icon">📺</span>
+                        <span>Channel</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="filter" data-component="Country & Region">
+                        <span class="component-icon">🌍</span>
+                        <span>Country & Region</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="filter" data-component="Device Type">
+                        <span class="component-icon">📱</span>
+                        <span>Device Type</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="filter" data-component="Product Category">
+                        <span class="component-icon">🏷️</span>
+                        <span>Product Category</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-section">
+                <div class="section-header" data-section="layout">
+                    <span class="icon">📐</span>
+                    <span>Layout Blocks</span>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="component-list" id="layoutList">
+                    <div class="component-item" draggable="true" data-type="layout" data-component="Section Block">
+                        <span class="component-icon">▦</span>
+                        <span>Section Block</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="layout" data-component="Two Column">
+                        <span class="component-icon">▭</span>
+                        <span>Two Column</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="layout" data-component="Three Column">
+                        <span class="component-icon">▱</span>
+                        <span>Three Column</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="layout" data-component="Header Text">
+                        <span class="component-icon">H1</span>
+                        <span>Header Text</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="layout" data-component="Subheader Text">
+                        <span class="component-icon">H2</span>
+                        <span>Subheader Text</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="layout" data-component="Divider">
+                        <span class="component-icon">─</span>
+                        <span>Divider Line</span>
+                    </div>
+                    <div class="component-item" draggable="true" data-type="layout" data-component="Empty Container">
+                        <span class="component-icon">☐</span>
+                        <span>Empty Container</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Canvas -->
+        <main class="canvas-container" id="canvasContainer">
+            <div class="canvas" id="canvas">
+                <div class="canvas-grid"></div>
+                <div class="canvas-content" id="canvasContent">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📊</div>
+                        <h2>Start Building Your Report</h2>
+                        <p>Drag components from the left sidebar to begin</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar - Configuration Panel -->
+        <aside class="sidebar sidebar-right">
+            <div class="sidebar-header">
+                <h2>Configuration</h2>
+                <button class="close-config" id="closeConfigBtn">✕</button>
+            </div>
+            <div class="config-content" id="configContent">
+                <div class="no-selection">
+                    <div class="no-selection-icon">⚙️</div>
+                    <p>Select a component to configure</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-header">
+            <h2>Preview Mode</h2>
+            <button class="modal-close" id="closePreviewBtn">✕</button>
+        </div>
+        <div class="modal-content" id="previewContent">
+            <!-- Preview content will be injected here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
