@@ -143,6 +143,23 @@ Refer to **FIGMA_DESIGN_SPEC.md** for:
 
 ---
 
+## 📦 Deployment
+
+### GitHub Repository
+🔗 **Repository:** https://github.com/goururakesh/Drag-and-Drop-Report-Builder.git
+
+### Live Demo
+🚀 **Deploy to Vercel (Recommended):**
+1. Go to https://vercel.com
+2. Sign in with GitHub
+3. Click "Add New Project"
+4. Import repository: `Drag-and-Drop-Report-Builder`
+5. Click "Deploy" (takes ~1 minute)
+
+📖 For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+---
+
 **Ready to build your reports!** 🚀
 
 Drag components from the left, configure them on the right, and preview your results!
