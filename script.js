@@ -644,7 +644,8 @@ function initializeHeaderActions() {
     document.getElementById('exportBtn').addEventListener('click', exportReport);
     document.getElementById('shareBtn').addEventListener('click', shareReport);
     document.getElementById('closeConfigBtn').addEventListener('click', () => {
-        document.querySelector('.sidebar-right').style.display = 'none';
+        const rightSidebar = document.querySelector('.sidebar-right');
+        rightSidebar.style.display = 'none';
     });
 }
 
